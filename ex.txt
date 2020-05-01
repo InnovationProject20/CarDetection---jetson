@@ -1,0 +1,11 @@
+plate0: 10 results
+    - B2228HM	 confidence: 94.7342
+    - B2Z28HM	 confidence: 85.8739
+    - B22Z8HM	 confidence: 84.4337
+    - B222BHM	 confidence: 84.365
+    - 82228HM	 confidence: 84.3138
+    - BZ228HM	 confidence: 83.8605
+    - B2228MM	 confidence: 81.2922
+    - B2ZZ8HM	 confidence: 75.5734
+    - B2Z2BHM	 confidence: 75.5047
+    - 82Z28HM	 confidence: 75.4535
