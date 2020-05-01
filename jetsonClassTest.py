@@ -17,6 +17,7 @@ class RPi:
         cursor = mariadb_connection.cursor
         
         cursor.execute()
+        #cursor.execute("INSERT INTO records (licensePlate, timeRecord, Accuracy) VALUES ()))
         mariadb_connection.commit()
         cursor.close()
         
