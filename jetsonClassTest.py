@@ -1,6 +1,6 @@
 ###
 # Testing class for the Jetson
-# each raspberry pi is an object of the class, each with its own ip
+# each object of the class process data from a different pi, each with its own ip
 ###
 
 class RPi:
@@ -9,6 +9,8 @@ class RPi:
     __ID = ""           #ID of the pi (initiated value)
     __Data_count = ""   #The number of the photo from a pi (incremented value)
     __r = ""            #redis object
+    __plate = ""        #the plate from the picture
+    __accuracy = ""     #accuracy
     def __init__(self, ID):
         __username = "DBinnovation"
         __password = "DBinnovation123"
