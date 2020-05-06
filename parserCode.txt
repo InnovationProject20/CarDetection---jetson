@@ -1,4 +1,4 @@
-file = open("plateResults","r+")
+file = open("plateResult","r+")
 
 line = file.read()
 
