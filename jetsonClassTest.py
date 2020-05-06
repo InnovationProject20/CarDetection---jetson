@@ -2,6 +2,7 @@
 # Testing class for the Jetson
 # each object of the class process data from a different pi, each with its own ip
 ###
+from datetime import datetime
 
 class RPi:
     __username = ""     #username for the php server
@@ -9,8 +10,6 @@ class RPi:
     __ID = ""           #ID of the pi (initiated value)
     __Data_count = ""   #The number of the photo from a pi (incremented value)
     __r = ""            #redis object
-    __plate = ""        #the plate from the picture
-    __accuracy = ""     #accuracy
     def __init__(self, ID):
         __username = "DBinnovation"
         __password = "DBinnovation123"
@@ -24,6 +23,16 @@ class RPi:
         mariadb_connection = mariadb.connect(host = 'localhost', user = self.__username, pasword = self.__password, database = 'licenseDB')
         cursor = mariadb_connection.cursor
         
+        # Open alpr output file
+        file = open("plateResults","r+")
+        # Parse to get the first result of plate and accuracy
+        line = file.read()
+        licensePlate = line[line.find('- ')+2:line.find('c')-2]
+        accuracy = float(line[line.find(".")-2:line.find('.')+3])
+        file.close()
+        now = datetime.now()
+        timeRecord = now.strftime("%d/%m/%Y %H:%M:%S")
+        # Send to the PHP server
         cursor.execute()
         #cursor.execute("INSERT INTO records (licensePlate, timeRecord, Accuracy) VALUES ()))
         mariadb_connection.commit()
