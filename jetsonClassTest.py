@@ -24,7 +24,7 @@ class RPi:
         cursor = mariadb_connection.cursor
         
         # Open alpr output file
-        file = open("plateResults","r+")
+        file = open("plateResult","r+")
         # Parse to get the first result of plate and accuracy
         line = file.read()
         licensePlate = line[line.find('- ')+2:line.find('c')-2]
