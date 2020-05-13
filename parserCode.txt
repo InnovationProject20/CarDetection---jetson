@@ -2,10 +2,10 @@ file = open("plateResult","r+")
 
 line = file.read()
 
-sub1 = line[line.find('- ')+2:line.find('c')-2]
-print(sub1)
+licensePlate = line[line.find('- ')+2:line.find('c')-2]
+print(licensePlate)
 
-sub2 = float(line[line.find(".")-2:line.find('.')+3])
-print(sub2)
+accuracy = float(line[line.find(".")-2:line.find('.')+3])
+print(accuracy)
 
 file.close()
