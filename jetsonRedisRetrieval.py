@@ -18,12 +18,12 @@ Pi = list()	#list containing all the pi objects
 location = "Some place"	# Dummy var, will be updated in the future	
 
 class RPi:
-	numberOfDevices = sys.argv[1]
+	numberOfDevices = int(sys.argv[1])
 	def __init__(self, ID, location):
 		self.__ID = ID
 		self.__Data_count = 0
 		self.__Location = location
-		self.__KeyPrefix = ('Pi%d_imagedata' %self.__ID)
+		self.__KeyPrefix = ('Pi%dimagedata' %self.__ID)
 	def __del__(self):
 		print("deleted")
 	def nextImage(self):
@@ -46,7 +46,7 @@ class RPi:
 		nothing
 """
 def initialize():
-	for i in range(RPi.numberOfDevices):
+	for i in range(RPi.numberOfDevices, 0, -1):
 		dummyObj = RPi(i,location)
 		Pi.append(dummyObj) 
 
@@ -108,8 +108,7 @@ def main():
 				#r.delete(key)
 				command = ""
 				Pi[i].nextImage()
-				cnt+=1
-				print(cnt)
+
 
 if __name__ == "__main__":
 	main()
