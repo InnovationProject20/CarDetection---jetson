@@ -10,6 +10,7 @@ class RPi:
     __ID = ""           #ID of the pi (initiated value)
     __Data_count = ""   #The number of the photo from a pi (incremented value)
     __r = ""            #redis object
+    __location = ""	#physical location description of pi
     def __init__(self, ID):
         __username = "DBinnovation"
         __password = "DBinnovation123"
@@ -34,7 +35,7 @@ class RPi:
         timeRecord = now.strftime("%d/%m/%Y %H:%M:%S")
         # Send to the PHP server
         cursor.execute()
-        #cursor.execute("INSERT INTO records (licensePlate, timeRecord, Accuracy) VALUES ()))
+		cursor.execute("INSERT INTO records (licensePlate, timeRecord, accuracy) VALUES (%s, %s, %s)",(licensePlate, timeRecord, accuracy))
         mariadb_connection.commit()
         cursor.close()
         
@@ -50,4 +51,6 @@ class RPi:
             subprocess.call(shlex.split(command))
             command = ""
             self.__Data_count+=1
+	def clearData(self)
+		
     #def executeCommand(self)
