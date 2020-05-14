@@ -18,7 +18,7 @@ Pi = list()	#list containing all the pi objects
 location = "Some place"	# Dummy var, will be updated in the future	
 
 class RPi:
-	numberOfDevices = 1
+	numberOfDevices = sys.argv[1]
 	def __init__(self, ID, location):
 		self.__ID = ID
 		self.__Data_count = 0
@@ -49,9 +49,6 @@ def initialize():
 	for i in range(RPi.numberOfDevices):
 		dummyObj = RPi(i,location)
 		Pi.append(dummyObj) 
-
-def addNewDevice():
-	RPi.numberOfDevices+=1
 
 def main():
 	# Set up the pi and save the objects into a list
