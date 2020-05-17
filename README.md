@@ -1,9 +1,10 @@
 # CarDetection---jetson
+This is an innovation project of Students from Metropolia University of Applied Sciences, working in collaboration with NOKIA.  
+The goal of this project is to create a modular systems of IoT devices for license plate recognition. Each module consists of a Raspberry Pi 3B+, equipped with a Pi Noir camera module to record live video feed and detect vehicles. Once having identify vehicles and finished pre-processing, the frames are sent the the master module consisting of a single Jetson Nano via Redis, for lincense plate recognition. The final data is then cross-checked with an online database for further applications
 
-## The accuracy and license plate is calculated with openalpr from the jetson  
-The OpenALPR library handles most of the work identifying licence plates. The communication and naming convention are pre-coded and follow the following guidelines:  
-1. The KEY to the image data is formatted as:  
->`Pi<Pi ID>imagedata<Image data >`
+This repository contains all the materials needed for the Jetson Nano, which includes:
+1. The redis server hosting instruction
+2. The files needed for data retrival, image processing and sending data to the cloud
 
 ## Setting up the redis server
 ### Install docker
@@ -82,3 +83,8 @@ This README is written with reference to [this guide](https://thisdavej.com/how-
 ### Running the script
 Run the shell script start.sh, providing the number of Raspberry Pi expected in the current system  
 >`./start.sh <number of pi>`
+
+### Notes 
+The OpenALPR library handles most of the work identifying licence plates. The communication and naming convention are pre-coded and follow the following guidelines:  
+1. The KEY to the image data is formatted as:  
+>`Pi<Pi ID>imagedata<Image data >`
